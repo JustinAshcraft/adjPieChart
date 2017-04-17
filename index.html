@@ -44,7 +44,6 @@
   <script src='js/libs/d3.min.js'></script>
   <script src='js/libs/jquery.min.js'></script>
   <script src='js/libs/bootstrap.min.js'></script>
-  <script src="js/index.js"></script>
   
 </head>
 
@@ -86,8 +85,6 @@
           $routeProvider
           .when('/',   {templateUrl: 'views/default.html'})
           .when('/1/', {templateUrl: 'views/1.html'})
-          .when('/2/', {templateUrl: 'views/2.html'})
-          .when('/3/', {templateUrl: 'views/3.html'})
           .otherwise({redirectTo: '/'});
         }]);
 
@@ -121,5 +118,6 @@
 
     </script>
 
+  <script src="js/index.js"></script>
 </body>
 </html>
