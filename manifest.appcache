@@ -20,7 +20,7 @@ https://jcrafty.github.io/adjPieChart/css/style.css
 
 #javascript files
 https://jcrafty.github.io/adjPieChart/js/libs/angular.min.js
-https://jcrafty.github.io/adjPieChart/js/libs/angular-route.min.js
+https://jcrafty.github.io/adjPieChart/js/libs/angular-route.js
 https://jcrafty.github.io/adjPieChart/js/libs/d3.min.js
 https://jcrafty.github.io/adjPieChart/js/libs/jquery.min.js
 https://jcrafty.github.io/adjPieChart/js/libs/bootstrap.min.js
