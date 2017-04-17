@@ -1,56 +1,128 @@
 <!DOCTYPE html>
-<html >
+<html manifest="manifest.appcache">
 <head>
   <meta charset="UTF-8">
   <title>D3 Pie Chart - Slider Controlled</title>
   
+    <!-- *******************************************************************
+    These elements help the website integrate with supporting devices,
+    making it behave more like a native application.
+    ******************************************************************** -->
+
+    <!-- Set the website's width to match the device's width and scale: -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Inform devices that this website is "mobile web app capable": -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- Some devices allow you to define the color of various parts of the
+    user interface when your website is launched: -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="msapplication-TileColor" content="#0099cc" />
+    <meta name="theme-color" content="#0099cc" />
+
+    <!-- Define the website's name, which is often utilized when a visitor
+    creates a home-screen icon for it: -->
+    <meta name="application-name" content="Website Name" />
+    <meta name="apple-mobile-web-app-title" content="Website Name" />
+
+    <!-- Define an icon for a few specific devices, which are utilized when
+    a visitor chooses to add your website to their home-screen: -->
+    <meta name="msapplication-TileImage" content="/img/touch/ms-touch-icon-144x144-precomposed.png" />
+    <link rel="apple-touch-icon" href="/img/touch/apple-touch-icon.png" />
+    <link rel="icon" sizes="192x192" href="/img/touch/chrome-touch-icon-192x192.png" />
+
   
   <link rel='stylesheet prefetch' href='css/bootstrap.min.css'>
+  <link rel="stylesheet" href="css/style.css">
 
-      <link rel="stylesheet" href="css/style.css">
 
+  <script src="js/libs/angular.min.js"></script>
+  <script src="js/libs/angular-route.js"></script>
   
 </head>
 
-<body>
-  <div id=main-container>
-  <div id=chart-controls>
-    <form id=nbForm>
-      <ul id="menu">
-        <li>
-         
-          <h4>Select Number of Chart Segments</h4></li>
-        <li>
-          <div class="range-slider">
-            <input id=nbSliders class="input-range" type="range" value="1" min="1" max="10">
-            <span class="range-value"></span>
-          </div>
-          <br>
-        </li>
-        <li>
-          <!--
-            <button id=nbFormSubmit type="button" class="btn btn-success">Create Segments</button>
-          -->
-        </li>
-      </ul>
+<body data-ng-app="offlineDemo">
+  <!-- (Above) Define the AngularJS app name. -->
 
-    </form>
-    <table id=rangebox>
+    <!-- *******************************************************************
+    Basic navigation:
+    ******************************************************************** -->
 
-      <tbody>
-        <h5 class="HideOnLoad">Click boxes to edit labels</h5>
-         
-      </tbody>
-    </table>
-    </div>
-    <div id=pie></div>
-    <div id=pie display=hidden></div>
-  </div>
-  <script src='js/libs/d3.min.js'></script>
+    <a href="#/1">Step 1</a>
+    <a href="#/2">Step 1</b>
+    <a href="#/3">Step 1</c>
+
+    <!-- *******************************************************************
+    Each view file will be loaded into this element:
+    ******************************************************************** -->
+
+    <div data-ng-view></div>
+
+    <!-- *******************************************************************
+    AngularJS and its ngRoute module are required:
+    ******************************************************************** -->
+
+
+<script>
+
+      /* *******************************************************************
+      Define which view file is loaded into <div data-ng-view></div> based
+      on the URL requested by the browser. The below code tells AngularJS:
+      - "When /   is requested, load views/default.html."
+      - "When /1/ is requested, load views/1.html."
+      - "When /2/ is requested, load views/2.html."
+      - "When /3/ is requested, load views/3.html."
+      - "If anything else is requested, redirect to '/', which will
+         trigger the first .when() rule."
+      ******************************************************************* */
+
+      angular.module('offlineDemo', ['ngRoute'])
+        .config(['$routeProvider', function($routeProvider) {
+          $routeProvider
+          .when('/',   {templateUrl: 'views/default.html'})
+          .when('/1/', {templateUrl: 'views/1.html'})
+          .when('/2/', {templateUrl: 'views/2.html'})
+          .when('/3/', {templateUrl: 'views/3.html'})
+          .otherwise({redirectTo: '/'});
+        }]);
+
+      /* *******************************************************************
+      This will inform visitors that the website is done downloading itself
+      onto their device, making it safe to go offline.
+      ******************************************************************* */
+
+      window.applicationCache.addEventListener('cached', function() {
+        alert('Done downloading. It’s safe to go offline now.');
+      }, false);
+
+      /* *******************************************************************
+      This will inform visitors that the website has been updated, and it
+      will ask them to accept or reject the updated resource(s). This
+      occurs when three things happen:
+      1. The visitor has downloaded your website in the past
+      2. You have updated one or more resources AND the cache manifest
+      3. The visitor accesses the website, again, while they're online
+      ******************************************************************* */
+
+      window.addEventListener('load', function() {
+        window.applicationCache.addEventListener('updateready', function() {
+          if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+            if (confirm('A new version is available. Load it?')) {
+              window.location.reload();
+            }
+          }
+        }, false);
+      }, false);
+
+    </script>
+
+<script src='js/libs/d3.min.js'></script>
 <script src='js/libs/jquery.min.js'></script>
 <script src='js/libs/bootstrap.min.js'></script>
-
-    <script src="js/index.js"></script>
+<script src="js/appcaching.js"></script>
+<script src="js/index.js"></script>
 
 </body>
 </html>
