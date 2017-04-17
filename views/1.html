@@ -1,1 +1,33 @@
-<h1>View #1</h1>
+<div id=main-container>
+  <div id=chart-controls>
+    <form id=nbForm>
+      <ul id="menu">
+        <li>
+         
+          <h4>Select Number of Chart Segments</h4></li>
+        <li>
+          <div class="range-slider">
+            <input id=nbSliders class="input-range" type="range" value="1" min="1" max="10">
+            <span class="range-value"></span>
+          </div>
+          <br>
+        </li>
+        <li>
+          <!--
+            <button id=nbFormSubmit type="button" class="btn btn-success">Create Segments</button>
+          -->
+        </li>
+      </ul>
+
+    </form>
+    <table id=rangebox>
+
+      <tbody>
+        <h5 class="HideOnLoad">Click boxes to edit labels</h5>
+         
+      </tbody>
+    </table>
+    </div>
+    <div id=pie></div>
+    <div id=pie display=hidden></div>
+  </div>
