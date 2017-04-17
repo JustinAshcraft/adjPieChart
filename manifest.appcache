@@ -8,6 +8,8 @@ CACHE:
 
 
 #internal HTML documents
+https://jcrafty.github.io/adjPieChart/views/default.html
+https://jcrafty.github.io/adjPieChart/views/1.html
 
 
 #style sheets
@@ -15,9 +17,10 @@ https://jcrafty.github.io/adjPieChart/css/bootstrap.min.css
 https://jcrafty.github.io/adjPieChart/css/style.css
 
 #style sheet images
-"http://i42.tinypic.com/22zsyc.jpg"
 
 #javascript files
+https://jcrafty.github.io/adjPieChart/js/libs/angular.min.js
+https://jcrafty.github.io/adjPieChart/js/libs/angular-route.min.js
 https://jcrafty.github.io/adjPieChart/js/libs/d3.min.js
 https://jcrafty.github.io/adjPieChart/js/libs/jquery.min.js
 https://jcrafty.github.io/adjPieChart/js/libs/bootstrap.min.js
