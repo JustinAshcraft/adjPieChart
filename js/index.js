@@ -1,3 +1,5 @@
+
+alert("Ready Start!");
 var nb_sliders = null; // nb of range sliders
 //var nb_funds = 7; // nb of range sliders
 var moving_id = null; // id of the moved slider
@@ -68,6 +70,7 @@ d3.selectAll('.input-range').on('input', function() {
 
 // initialize the sliders, events and pie chart
 function init() {
+  alert("Initialize Pie Chart!");
   oldValue = [];
   moving_id = null;
   
