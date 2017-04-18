@@ -38,13 +38,13 @@
   <link rel='stylesheet prefetch' href='css/bootstrap.min.css'>
   <link rel="stylesheet" href="css/style.css">
 
-
   <script src="js/libs/angular.min.js"></script>
   <script src="js/libs/angular-route.js"></script>
 
   <script src='js/libs/d3.min.js'></script>
   <script src='js/libs/jquery.min.js'></script>
   <script src='js/libs/bootstrap.min.js'></script>
+  <script src="js/index.js"></script>
   
 </head>
 
@@ -54,8 +54,8 @@
     <!-- *******************************************************************
     Basic navigation:
     ******************************************************************** -->
-
-    <a href="#/1">Step 1</a>
+    <a href="/">Default</a>
+    <a href="#1">Step 1</a>
 
     <!-- *******************************************************************
     Each view file will be loaded into this element:
@@ -81,13 +81,19 @@
          trigger the first .when() rule."
       ******************************************************************* */
 
-      angular.module('offlineDemo', ['ngRoute'])
-        .config(['$routeProvider', function($routeProvider) {
+
+      var app = angular.module("offlineDemo", ["ngRoute"]);
+      app.config(function($routeProvider) {
           $routeProvider
-          .when('/',   {templateUrl: 'views/default.html'})
-          .when('/1/', {templateUrl: 'views/1.html'})
+          .when("/", {
+              templateUrl : "views/default.htm"
+          })
+          .when("/red", {
+              templateUrl : "1.htm"
+          })
           .otherwise({redirectTo: '/'});
-        }]);
+      });
+
 
       /* *******************************************************************
       This will inform visitors that the website is done downloading itself
