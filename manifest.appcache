@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 1.0 4-18-2017
+#version 1.1 4-18-2017
 
 CACHE:
 
@@ -10,7 +10,7 @@ https://jcrafty.github.io/adjPieChart/img/pie-chart.png
 #internal HTML documents
 https://jcrafty.github.io/adjPieChart/index.html
 https://jcrafty.github.io/adjPieChart/views/default.html
-https://jcrafty.github.io/adjPieChart/views/1.html
+https://jcrafty.github.io/adjPieChart/views/step1.html
 
 
 #style sheets

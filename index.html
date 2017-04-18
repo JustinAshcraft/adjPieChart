@@ -54,8 +54,8 @@
     <!-- *******************************************************************
     Basic navigation:
     ******************************************************************** -->
-    <a href="/">Default</a>
-    <a href="/1">Step 1</a>
+    <a href="#/">Default</a>
+    <a href="#1">Step 1</a>
 
     <!-- *******************************************************************
     Each view file will be loaded into this element:
@@ -89,7 +89,7 @@
               templateUrl : "views/default.html"
           })
           .when("/1", {
-              templateUrl : "views/1.html"
+              templateUrl : "views/step1.html"
           })
           .otherwise({redirectTo: '/'});
       });
